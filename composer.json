@@ -1,0 +1,21 @@
+{
+    "name": "stevro/graphhopper-client",
+    "description": "PHP Client for GraphHopper API",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Stevro\\GraphhopperClient\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Stefan Matei",
+            "email": "stev.matei@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": ">=7.0"
+    }
+}
