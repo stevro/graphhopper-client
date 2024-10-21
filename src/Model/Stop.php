@@ -31,6 +31,15 @@ class Stop
     private $group;
 
     /**
+     * @param Address $address
+     */
+    public function __construct(Address $address)
+    {
+        $this->address = $address;
+    }
+
+
+    /**
      * @return Address
      */
     public function getAddress(): Address
