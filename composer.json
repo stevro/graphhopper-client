@@ -1,21 +1,27 @@
 {
-    "name": "stevro/graphhopper-client",
-    "description": "PHP Client for GraphHopper API",
-    "type": "library",
-    "license": "MIT",
-    "autoload": {
-        "psr-4": {
-            "Stevro\\GraphhopperClient\\": "src/"
-        }
-    },
-    "authors": [
-        {
-            "name": "Stefan Matei",
-            "email": "stev.matei@gmail.com"
-        }
-    ],
-    "minimum-stability": "dev",
-    "require": {
-        "php": ">=7.0"
+  "name": "stevro/graphhopper-client",
+  "description": "PHP Client for GraphHopper API",
+  "type": "library",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "Stevro\\GraphhopperClient\\": "src/"
     }
+  },
+  "authors": [
+    {
+      "name": "Stefan Matei",
+      "email": "stev.matei@gmail.com"
+    }
+  ],
+  "minimum-stability": "stable",
+  "require": {
+    "php": "7.*",
+    "guzzlehttp/guzzle": ">=6.0",
+    "symfony/serializer": "^5.4",
+    "symfony/property-access": "^5.4"
+  },
+  "require-dev": {
+    "phpunit/phpunit": "^7.0"
+  }
 }
