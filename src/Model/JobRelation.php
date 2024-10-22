@@ -2,21 +2,26 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class JobRelation
 {
 
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $type;
 
     /**
      * @var string[]
+     *              @Serializer\Type("array<string>")
      */
-    private $ids = [];
+    private $ids;
 
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $vehicleId;
 

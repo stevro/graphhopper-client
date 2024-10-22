@@ -2,78 +2,95 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class Service
 {
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $id;
 
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $type;
 
     /**
      * @var int
+     *         @Serializer\Type("int")
      */
     private $priority;
 
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $name;
 
     /**
      * @var Address
+     *             @Serializer\Type("Stevro\GraphhopperClient\Model\Address")
      */
     private $address;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $duration;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $preparationTime;
 
     /**
      * @var TimeWindow[]
+     * @Serializer\Type("array<Stevro\GraphhopperClient\Model\TimeWindow>")
      */
     private $timeWindows;
 
     /**
      * @var int[]
+     * @Serializer\Type("array<int>")
      */
     private $size;
 
     /**
      * @var string[]
+     *              @Serializer\Type("array<string>")
      */
     private $requiredSkills;
     /**
      * @var string[]
+     * @Serializer\Type("array<string>")
      */
     private $allowedVehicles;
     /**
      * @var string[]
+     * @Serializer\Type("array<string>")
      */
     private $disallowedVehicles;
 
     /**
      * @var PreferredVehicle[]
+     * @Serializer\Type("array<Stevro\GraphhopperClient\Model\PreferredVehicle>")
      */
     private $preferredVehicles;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $maxTimeInVehicle;
 
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $group;
 
@@ -90,7 +107,7 @@ class Service
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId()
     {
         return $this->id;
     }
@@ -110,7 +127,7 @@ class Service
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->type;
     }
@@ -130,7 +147,7 @@ class Service
     /**
      * @return int
      */
-    public function getPriority(): int
+    public function getPriority()
     {
         return $this->priority;
     }
@@ -150,7 +167,7 @@ class Service
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -170,7 +187,7 @@ class Service
     /**
      * @return Address
      */
-    public function getAddress(): Address
+    public function getAddress()
     {
         return $this->address;
     }
@@ -190,7 +207,7 @@ class Service
     /**
      * @return int
      */
-    public function getDuration(): int
+    public function getDuration()
     {
         return $this->duration;
     }
@@ -210,7 +227,7 @@ class Service
     /**
      * @return int
      */
-    public function getPreparationTime(): int
+    public function getPreparationTime()
     {
         return $this->preparationTime;
     }
@@ -230,7 +247,7 @@ class Service
     /**
      * @return TimeWindow[]
      */
-    public function getTimeWindows(): array
+    public function getTimeWindows()
     {
         return $this->timeWindows;
     }
@@ -250,7 +267,7 @@ class Service
     /**
      * @return int[]
      */
-    public function getSize(): array
+    public function getSize()
     {
         return $this->size;
     }
@@ -270,7 +287,7 @@ class Service
     /**
      * @return string[]
      */
-    public function getRequiredSkills(): array
+    public function getRequiredSkills()
     {
         return $this->requiredSkills;
     }
@@ -290,7 +307,7 @@ class Service
     /**
      * @return string[]
      */
-    public function getAllowedVehicles(): array
+    public function getAllowedVehicles()
     {
         return $this->allowedVehicles;
     }
@@ -310,7 +327,7 @@ class Service
     /**
      * @return string[]
      */
-    public function getDisallowedVehicles(): array
+    public function getDisallowedVehicles()
     {
         return $this->disallowedVehicles;
     }
@@ -330,7 +347,7 @@ class Service
     /**
      * @return PreferredVehicle[]
      */
-    public function getPreferredVehicles(): array
+    public function getPreferredVehicles()
     {
         return $this->preferredVehicles;
     }
@@ -350,7 +367,7 @@ class Service
     /**
      * @return int
      */
-    public function getMaxTimeInVehicle(): int
+    public function getMaxTimeInVehicle()
     {
         return $this->maxTimeInVehicle;
     }
@@ -370,7 +387,7 @@ class Service
     /**
      * @return string
      */
-    public function getGroup(): string
+    public function getGroup()
     {
         return $this->group;
     }

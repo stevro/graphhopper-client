@@ -2,18 +2,22 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class GroupRelation
 {
 
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $type;
 
     /**
      * @var string[]
+     *              @Serializer\Type("array<string>")
      */
-    private $groups = [];
+    private $groups;
 
     /**
      * @param string   $type

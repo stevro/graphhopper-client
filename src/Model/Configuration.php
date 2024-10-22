@@ -2,16 +2,20 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class Configuration
 {
 
     /**
      * @var Routing|null
+     *                  @Serializer\Type("Stevro\GraphhopperClient\Model\Routing")
      */
     private $routing;
 
     /**
      * @var Optimization|null
+     *                       @Serializer\Type("Stevro\GraphhopperClient\Model\Optimization")
      */
     private $optimization;
 

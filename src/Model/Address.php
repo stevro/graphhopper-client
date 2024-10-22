@@ -2,6 +2,8 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 /**
  * https://github.com/graphhopper/directions-api-clients/blob/master/php/SwaggerClient-php/lib/Model/Address.php
  */
@@ -10,29 +12,35 @@ class Address
 
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $locationId;
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $name;
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $streetHint;
 
     /**
      * @var double
+     *            @Serializer\Type("float")
      */
     private $lon;
 
     /**
      * @var double
+     *            @Serializer\Type("float")
      */
     private $lat;
 
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $curbside;
 
@@ -51,7 +59,7 @@ class Address
     /**
      * @return string
      */
-    public function getLocationId(): string
+    public function getLocationId()
     {
         return $this->locationId;
     }
@@ -71,7 +79,7 @@ class Address
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -91,7 +99,7 @@ class Address
     /**
      * @return string
      */
-    public function getStreetHint(): string
+    public function getStreetHint()
     {
         return $this->streetHint;
     }
@@ -111,7 +119,7 @@ class Address
     /**
      * @return float
      */
-    public function getLon(): float
+    public function getLon()
     {
         return $this->lon;
     }
@@ -131,7 +139,7 @@ class Address
     /**
      * @return float
      */
-    public function getLat(): float
+    public function getLat()
     {
         return $this->lat;
     }
@@ -151,7 +159,7 @@ class Address
     /**
      * @return string
      */
-    public function getCurbside(): string
+    public function getCurbside()
     {
         return $this->curbside;
     }

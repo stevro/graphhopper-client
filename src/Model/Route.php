@@ -2,51 +2,62 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class Route
 {
 
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $vehicleId;
 
     /**
      * @var int
+     *         @Serializer\Type("int")
      */
     private $distance;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $transportTime;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $completionTime;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $waitingTime;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $serviceDuration;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $preparationTime;
 
     /**
      * @var RoutePoint[]
+     * @Serializer\Type("array<Stevro\GraphhopperClient\Model\RoutePoint>")
      */
     private $points;
 
     /**
      * @var Activity[]
+     *                @Serializer\Type("array<Stevro\GraphhopperClient\Model\Activity>")
      */
     private $activities;
 

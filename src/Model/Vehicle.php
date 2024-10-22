@@ -2,26 +2,33 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class Vehicle
 {
     /**
      * @var string
+     * @Serializer\Type("string")
      */
     private $vehicleId;
     /**
      * @var string
+     * @Serializer\Type("string")
      */
     private $typeId;
     /**
      * @var Shift[]|null
+     * @Serializer\Type("array<Stevro\GraphhopperClient\Model\Shift>")
      */
     private $shifts;
     /**
      * @var Address|null
+     * @Serializer\Type("Stevro\GraphhopperClient\Model\Address")
      */
     private $startAddress;
     /**
      * @var Address|null
+     * @Serializer\Type("Stevro\GraphhopperClient\Model\Address")
      */
     private $endAddress;
     /**
@@ -30,39 +37,53 @@ class Vehicle
     private $break;
     /**
      * @var bool
+     * @Serializer\Type("boolean")
      */
     private $returnToDepot;
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $earliestStart;
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $latestEnd;
-    private $skills = [];
+
+    /**
+     * @var string[]
+     * @Serializer\Type("array<string>")
+     */
+    private $skills;
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $maxDistance;
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $maxDrivingTime;
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $maxJobs;
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $minJobs;
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $maxActivities;
     /**
      * @var bool
+     * @Serializer\Type("bool")
      */
     private $moveToEndAddress;
 
@@ -78,7 +99,7 @@ class Vehicle
     /**
      * @return string
      */
-    public function getVehicleId(): string
+    public function getVehicleId()
     {
         return $this->vehicleId;
     }
@@ -98,7 +119,7 @@ class Vehicle
     /**
      * @return string
      */
-    public function getTypeId(): string
+    public function getTypeId()
     {
         return $this->typeId;
     }
@@ -198,7 +219,7 @@ class Vehicle
     /**
      * @return bool
      */
-    public function isReturnToDepot(): bool
+    public function isReturnToDepot()
     {
         return $this->returnToDepot;
     }
@@ -218,7 +239,7 @@ class Vehicle
     /**
      * @return int
      */
-    public function getEarliestStart(): int
+    public function getEarliestStart()
     {
         return $this->earliestStart;
     }
@@ -238,7 +259,7 @@ class Vehicle
     /**
      * @return int
      */
-    public function getLatestEnd(): int
+    public function getLatestEnd()
     {
         return $this->latestEnd;
     }
@@ -258,7 +279,7 @@ class Vehicle
     /**
      * @return array
      */
-    public function getSkills(): array
+    public function getSkills()
     {
         return $this->skills;
     }
@@ -278,7 +299,7 @@ class Vehicle
     /**
      * @return int
      */
-    public function getMaxDistance(): int
+    public function getMaxDistance()
     {
         return $this->maxDistance;
     }
@@ -298,7 +319,7 @@ class Vehicle
     /**
      * @return int
      */
-    public function getMaxDrivingTime(): int
+    public function getMaxDrivingTime()
     {
         return $this->maxDrivingTime;
     }
@@ -318,7 +339,7 @@ class Vehicle
     /**
      * @return int
      */
-    public function getMaxJobs(): int
+    public function getMaxJobs()
     {
         return $this->maxJobs;
     }
@@ -338,7 +359,7 @@ class Vehicle
     /**
      * @return int
      */
-    public function getMinJobs(): int
+    public function getMinJobs()
     {
         return $this->minJobs;
     }
@@ -358,7 +379,7 @@ class Vehicle
     /**
      * @return int
      */
-    public function getMaxActivities(): int
+    public function getMaxActivities()
     {
         return $this->maxActivities;
     }
@@ -378,7 +399,7 @@ class Vehicle
     /**
      * @return bool
      */
-    public function isMoveToEndAddress(): bool
+    public function isMoveToEndAddress()
     {
         return $this->moveToEndAddress;
     }

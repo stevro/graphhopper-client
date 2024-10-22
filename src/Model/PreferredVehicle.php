@@ -2,16 +2,20 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class PreferredVehicle
 {
 
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $vehicleId;
 
     /**
      * @var int
+     *         @Serializer\Type("int")
      */
     private $priority;
 

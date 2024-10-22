@@ -2,6 +2,7 @@
 
 namespace Stevro\GraphhopperClient\tests\API;
 
+use JMS\Serializer\SerializerBuilder;
 use PHPUnit\Framework\TestCase;
 use Stevro\GraphhopperClient\API\Exception\APIException;
 use Stevro\GraphhopperClient\API\Request\VrpRequestPayload;
@@ -11,6 +12,7 @@ use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
 use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
+use Symfony\Component\Serializer\Normalizer\DateTimeNormalizer;
 use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
 use Symfony\Component\Serializer\Serializer;
 
@@ -22,23 +24,26 @@ class RouteOptimizationAPITest extends TestCase
 
     public function testSingleVrp()
     {
-        $serializer = new Serializer(
-            [new ObjectNormalizer(null, new CamelCaseToSnakeCaseNameConverter(), null, new ReflectionExtractor()), new ArrayDenormalizer()],
-            [new JsonEncoder()]
-        );
-
-        $requestPayload = $serializer->deserialize(json_encode($this->getPayload()), VrpRequestPayload::class, 'json');
-
-
         $api = new RouteOptimizationAPI($this->apiKey);
+
+        $requestPayload = $this->buildPayload();
 
         try {
             $response = $api->postSingleVrp($requestPayload);
         } catch (APIException $e) {
+            var_dump($e->getMessage());
             var_dump($e->getResponseBody());
+            die;
+
+            return;
         }
 
         $this->assertInstanceOf(VrpResponse::class, $response);
+    }
+
+    protected function buildPayload(): VrpRequestPayload
+    {
+        return SerializerBuilder::create()->build()->deserialize(json_encode($this->getPayload()), VrpRequestPayload::class, 'json');
     }
 
     protected function getPayload(): array
@@ -192,19 +197,15 @@ class RouteOptimizationAPITest extends TestCase
 
     public function testBatchVrp()
     {
-        $serializer = new Serializer(
-            [new ObjectNormalizer(null, new CamelCaseToSnakeCaseNameConverter(), null, new ReflectionExtractor()), new ArrayDenormalizer()],
-            [new JsonEncoder()]
-        );
-
-        $requestPayload = $serializer->deserialize(json_encode($this->getPayload()), VrpRequestPayload::class, 'json');
-
         $api = new RouteOptimizationAPI($this->apiKey);
-
+        $requestPayload = $this->buildPayload();
         try {
             $jobId = $api->postBatchVrp($requestPayload);
         } catch (APIException $e) {
+            var_dump($e->getMessage());
             var_dump($e->getResponseBody());
+
+            return;
         }
 
         $this->assertIsString($jobId);

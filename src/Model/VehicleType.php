@@ -2,55 +2,67 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class VehicleType
 {
     /**
      * @var string
+     * @Serializer\Type("string")
      */
     private $typeId;
 
     /**
      * @var string
+     * @Serializer\Type("string")
      */
     private $profile;
 
     /**
      * @var int[]
+     * @Serializer\Type("array<int>")
      */
     private $capacity;
 
     /**
      * @var float
+     * @Serializer\Type("float")
      */
-    private $speedFactory;
+    private $speedFactor;
 
     /**
      * @var float
+     * @Serializer\Type("float")
      */
     private $serviceTimeFactor;
 
     /**
      * @var float
+     * @Serializer\Type("float")
      */
     private $costPerMeter;
 
     /**
      * @var float
+     * @Serializer\Type("float")
      */
     private $costPerSecond;
 
     /**
      * @var float
+     * @Serializer\Type("float")
      */
     private $costPerActivation;
 
     /**
      * @var bool
+     * @Serializer\Type("bool")
      */
     private $considerTraffic;
 
     /**
      * @var string
+     * @Serializer\Type("string")
      */
     private $networkDataProvider;
 
@@ -65,7 +77,7 @@ class VehicleType
     /**
      * @return string
      */
-    public function getTypeId(): string
+    public function getTypeId()
     {
         return $this->typeId;
     }
@@ -85,7 +97,7 @@ class VehicleType
     /**
      * @return string
      */
-    public function getProfile(): string
+    public function getProfile()
     {
         return $this->profile;
     }
@@ -105,7 +117,7 @@ class VehicleType
     /**
      * @return int[]
      */
-    public function getCapacity(): array
+    public function getCapacity()
     {
         return $this->capacity;
     }
@@ -122,30 +134,11 @@ class VehicleType
         return $this;
     }
 
-    /**
-     * @return float
-     */
-    public function getSpeedFactory(): float
-    {
-        return $this->speedFactory;
-    }
-
-    /**
-     * @param float $speedFactory
-     *
-     * @return VehicleType
-     */
-    public function setSpeedFactory(float $speedFactory): VehicleType
-    {
-        $this->speedFactory = $speedFactory;
-
-        return $this;
-    }
 
     /**
      * @return float
      */
-    public function getServiceTimeFactor(): float
+    public function getServiceTimeFactor()
     {
         return $this->serviceTimeFactor;
     }
@@ -165,7 +158,7 @@ class VehicleType
     /**
      * @return float
      */
-    public function getCostPerMeter(): float
+    public function getCostPerMeter()
     {
         return $this->costPerMeter;
     }
@@ -185,7 +178,7 @@ class VehicleType
     /**
      * @return float
      */
-    public function getCostPerSecond(): float
+    public function getCostPerSecond()
     {
         return $this->costPerSecond;
     }
@@ -205,7 +198,7 @@ class VehicleType
     /**
      * @return float
      */
-    public function getCostPerActivation(): float
+    public function getCostPerActivation()
     {
         return $this->costPerActivation;
     }
@@ -225,7 +218,7 @@ class VehicleType
     /**
      * @return bool
      */
-    public function isConsiderTraffic(): bool
+    public function isConsiderTraffic()
     {
         return $this->considerTraffic;
     }
@@ -245,7 +238,7 @@ class VehicleType
     /**
      * @return string
      */
-    public function getNetworkDataProvider(): string
+    public function getNetworkDataProvider()
     {
         return $this->networkDataProvider;
     }
@@ -258,6 +251,26 @@ class VehicleType
     public function setNetworkDataProvider(string $networkDataProvider): VehicleType
     {
         $this->networkDataProvider = $networkDataProvider;
+
+        return $this;
+    }
+
+    /**
+     * @return float
+     */
+    public function getSpeedFactor()
+    {
+        return $this->speedFactor;
+    }
+
+    /**
+     * @param float $speedFactor
+     *
+     * @return VehicleType
+     */
+    public function setSpeedFactor(float $speedFactor): VehicleType
+    {
+        $this->speedFactor = $speedFactor;
 
         return $this;
     }

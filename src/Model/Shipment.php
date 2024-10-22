@@ -2,6 +2,8 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 /**
  *
  */
@@ -10,48 +12,59 @@ class Shipment
 
     /**
      * @var string
+     * @Serializer\Type("string")
      */
     private $id;
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $name;
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $priority;
 
     /**
      * @var Stop
+     * @Serializer\Type("Stevro\GraphhopperClient\Model\Stop")
      */
     private $pickup;
 
     /**
      * @var Stop
+     * @Serializer\Type("Stevro\GraphhopperClient\Model\Stop")
      */
     private $delivery;
     /**
      * @var int[]|null
+     *                @Serializer\Type("array<int>")
      */
     private $size;
     /**
      * @var string[]|null
+     * @Serializer\Type("array<string>")
      */
     private $requiredSkills;
     /**
      * @var string[]|null
+     * @Serializer\Type("array<string>")
      */
     private $allowedVehicles;
     /**
      * @var string[]|null
+     * @Serializer\Type("array<string>")
      */
     private $disallowedVehicles;
     /**
      * @var PreferredVehicle[]|null
+     * @Serializer\Type("array<Stevro\GraphhopperClient\Model\PreferredVehicle>")
      */
     private $preferredVehicles;
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $maxTimeInVehicle;
 
@@ -71,7 +84,7 @@ class Shipment
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId()
     {
         return $this->id;
     }
@@ -91,7 +104,7 @@ class Shipment
     /**
      * @return string
      */
-    public function getName(): string
+    public function getName()
     {
         return $this->name;
     }
@@ -111,7 +124,7 @@ class Shipment
     /**
      * @return int
      */
-    public function getPriority(): int
+    public function getPriority()
     {
         return $this->priority;
     }
@@ -171,7 +184,7 @@ class Shipment
     /**
      * @return int[]
      */
-    public function getSize(): array
+    public function getSize()
     {
         return $this->size;
     }
@@ -191,7 +204,7 @@ class Shipment
     /**
      * @return string[]
      */
-    public function getRequiredSkills(): array
+    public function getRequiredSkills()
     {
         return $this->requiredSkills;
     }
@@ -211,7 +224,7 @@ class Shipment
     /**
      * @return string[]
      */
-    public function getAllowedVehicles(): array
+    public function getAllowedVehicles()
     {
         return $this->allowedVehicles;
     }
@@ -231,7 +244,7 @@ class Shipment
     /**
      * @return string[]
      */
-    public function getDisallowedVehicles(): array
+    public function getDisallowedVehicles()
     {
         return $this->disallowedVehicles;
     }
@@ -251,7 +264,7 @@ class Shipment
     /**
      * @return PreferredVehicle[]
      */
-    public function getPreferredVehicles(): array
+    public function getPreferredVehicles()
     {
         return $this->preferredVehicles;
     }
@@ -271,7 +284,7 @@ class Shipment
     /**
      * @return int
      */
-    public function getMaxTimeInVehicle(): int
+    public function getMaxTimeInVehicle()
     {
         return $this->maxTimeInVehicle;
     }

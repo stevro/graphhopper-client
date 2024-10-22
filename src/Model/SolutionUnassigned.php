@@ -2,26 +2,32 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class SolutionUnassigned
 {
 
     /**
      * @var string[]
+     * @Serializer\Type("array<string>")
      */
     private $services;
 
     /**
      * @var string[]
+     * @Serializer\Type("array<string>")
      */
     private $shipments;
 
     /**
      * @var string[]
+     * @Serializer\Type("array<string>")
      */
     private $breaks;
 
     /**
      * @var Detail[]
+     * @Serializer\Type("array<Stevro\GraphhopperClient\Model\Detail>")
      */
     private $details;
 

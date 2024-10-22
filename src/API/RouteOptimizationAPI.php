@@ -7,34 +7,28 @@ use Psr\Http\Client\RequestExceptionInterface;
 use Stevro\GraphhopperClient\API\Exception\APIException;
 use Stevro\GraphhopperClient\API\Request\VrpRequestPayload;
 use Stevro\GraphhopperClient\API\Response\VrpResponse;
-use Symfony\Component\Serializer\Normalizer\AbstractObjectNormalizer;
 
 class RouteOptimizationAPI extends BaseAPI
 {
 
     /**
+     * https://docs.graphhopper.com/#operation/solveVRP
+     *
      * @param VrpRequestPayload $payload
      *
      * @return VrpResponse
      * @throws APIException
      *
      */
-    public function postSingleVrp(VrpRequestPayload $payload, array $serializerContext = null)
+    public function postSingleVrp(VrpRequestPayload $payload)
     {
-        if (!$serializerContext) {
-            $serializerContext = [
-                AbstractObjectNormalizer::SKIP_NULL_VALUES => true,
-                AbstractObjectNormalizer::SKIP_UNINITIALIZED_VALUES => true,
-                AbstractObjectNormalizer::PRESERVE_EMPTY_OBJECTS => false,
-            ];
-        }
 
         try {
             $response = $this->httpClient->post('vrp'.'?key='.$this->apiKey, [
                 'headers' => [
                     'Content-Type' => 'application/json',
                 ],
-                'body' => $this->serializer->serialize($payload, 'json', $serializerContext),
+                'body' => $this->serializer->serialize($payload, 'json'),
             ]);
         } catch (RequestException $e) {
             throw new APIException(
@@ -68,30 +62,29 @@ class RouteOptimizationAPI extends BaseAPI
             );
         }
 
-        return $this->serializer->deserialize($response->getBody()->getContents(), VrpResponse::class, 'json');
+        /** @var VrpResponse $data */
+        $vrpResponse = $this->serializer->deserialize($response->getBody()->getContents(), VrpResponse::class, 'json');
+
+        return $vrpResponse;
     }
 
     /**
+     *
+     * https://docs.graphhopper.com/#operation/asyncVRP
+     *
      * @param VrpRequestPayload $payload
      *
      * @return string
      */
-    public function postBatchVrp(VrpRequestPayload $payload, array $serializerContext = null)
+    public function postBatchVrp(VrpRequestPayload $payload)
     {
-        if (!$serializerContext) {
-            $serializerContext = [
-                AbstractObjectNormalizer::SKIP_NULL_VALUES => true,
-                AbstractObjectNormalizer::SKIP_UNINITIALIZED_VALUES => true,
-                AbstractObjectNormalizer::PRESERVE_EMPTY_OBJECTS => false,
-            ];
-        }
 
         try {
             $response = $this->httpClient->post('vrp/optimize'.'?key='.$this->apiKey, [
                 'headers' => [
                     'Content-Type' => 'application/json',
                 ],
-                'body' => $this->serializer->serialize($payload, 'json', $serializerContext),
+                'body' => $this->serializer->serialize($payload, 'json'),
             ]);
         } catch (RequestException $e) {
             throw new APIException(
@@ -131,6 +124,9 @@ class RouteOptimizationAPI extends BaseAPI
     }
 
     /**
+     *
+     * https://docs.graphhopper.com/#operation/getSolution
+     *
      * @param string $jobId
      *
      * @return VrpResponse
@@ -173,7 +169,10 @@ class RouteOptimizationAPI extends BaseAPI
             );
         }
 
-        return $this->serializer->deserialize($response->getBody()->getContents(), VrpResponse::class, 'json');
+        /** @var VrpResponse $data */
+        $vrpResponse = $this->serializer->deserialize($response->getBody()->getContents(), VrpResponse::class, 'json');
+
+        return $vrpResponse;
     }
 
 }

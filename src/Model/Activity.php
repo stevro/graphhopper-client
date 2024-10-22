@@ -2,69 +2,87 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class Activity
 {
-    /** @var string */
+    /**
+     * @var string
+     *            @Serializer\Type("string")
+     */
     private $type;
 
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $id;
 
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $locationId;
 
     /**
      * @var ResponseAddress
+     * @Serializer\Type("Stevro\GraphhopperClient\Model\ResponseAddress")
      */
     private $address;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $arrTime;
 
     /**
      * @var \DateTime|null
+     *                    @Serializer\Type("DateTime")
      */
     private $arrDateTime;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $endTime;
 
     /**
      * @var \DateTime|null
+     *                    @Serializer\Type("DateTime")
      */
     private $endDateTime;
 
     /**
      * @var int
+     *         @Serializer\Type("int")
      */
     private $distance;
 
     /**
      * @var int
+     *         @Serializer\Type("int")
      */
     private $drivingTime;
     /**
      * @var int
+     *         @Serializer\Type("int")
      */
     private $preparationTime;
     /**
      * @var int
+     *         @Serializer\Type("int")
      */
     private $waitingTime;
     /**
      * @var int[]
+     *           @Serializer\Type("array<int>")
      */
     private $loadBefore = [];
     /**
      * @var int[]
+     *           @Serializer\Type("array<int>")
      */
     private $loadAfter = [];
 

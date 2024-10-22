@@ -2,24 +2,30 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class DriveTimeBreak
 {
     /**
      * @var int
+     *         @Serializer\Type("int")
      */
     private $duration;
     /**
      * @var int
+     *         @Serializer\Type("int")
      */
     private $maxDrivingTime;
     /**
      * @var int
+     *         @Serializer\Type("int")
      */
     private $initialDrivingTime;
     /**
      * @var int[]
+     *           @Serializer\Type("array<int>")
      */
-    private $possibleSplit = [];
+    private $possibleSplit;
 
     /**
      * @return int

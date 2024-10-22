@@ -2,15 +2,19 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class Objective
 {
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $type;
 
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $value;
 

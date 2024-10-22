@@ -2,34 +2,44 @@
 
 namespace Stevro\GraphhopperClient\API\Response;
 
+use JMS\Serializer\Annotation as Serializer;
 use Stevro\GraphhopperClient\Model\Solution;
 
 class VrpResponse
 {
 
-    private $copyrights = [];
+    /**
+     * @var array
+     * @Serializer\Type("array")
+     */
+    private $copyrights;
     /**
      * @var string
+     * @Serializer\Type("string")
      */
     private $jobId;
 
     /**
      * @var string
+     * @Serializer\Type("string")
      */
     private $status;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $waitingTimeInQueue;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $processingTime;
 
     /**
      * @var Solution
+     * @Serializer\Type("Stevro\GraphhopperClient\Model\Solution")
      */
     private $solution;
 
@@ -152,7 +162,6 @@ class VrpResponse
 
         return $this;
     }
-
 
 
 }

@@ -2,15 +2,19 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class SnappedWaypoint
 {
 
     /**
      * @var float
+     * @Serializer\Type("float")
      */
     private $lon;
     /**
      * @var float
+     *           @Serializer\Type("float")
      */
     private $lat;
 

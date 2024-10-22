@@ -2,31 +2,38 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class Stop
 {
 
     /**
      * @var Address
+     * @Serializer\Type("Stevro\GraphhopperClient\Model\Address")
      */
     private $address;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $duration;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $preparationTime;
 
     /**
      * @var TimeWindow[]
+     * @Serializer\Type("array<Stevro\GraphhopperClient\Model\TimeWindow>")
      */
     private $timeWindows;
 
     /**
      * @var string
+     * @Serializer\Type("string")
      */
     private $group;
 
@@ -62,7 +69,7 @@ class Stop
     /**
      * @return int
      */
-    public function getDuration(): int
+    public function getDuration()
     {
         return $this->duration;
     }
@@ -82,7 +89,7 @@ class Stop
     /**
      * @return int
      */
-    public function getPreparationTime(): int
+    public function getPreparationTime()
     {
         return $this->preparationTime;
     }
@@ -102,7 +109,7 @@ class Stop
     /**
      * @return TimeWindow[]
      */
-    public function getTimeWindows(): array
+    public function getTimeWindows()
     {
         return $this->timeWindows;
     }
@@ -122,7 +129,7 @@ class Stop
     /**
      * @return string
      */
-    public function getGroup(): string
+    public function getGroup()
     {
         return $this->group;
     }

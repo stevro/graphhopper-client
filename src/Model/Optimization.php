@@ -2,10 +2,13 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class Optimization
 {
     /**
      * @var bool
+     *          @Serializer\Type("bool")
      */
     private $freeInsertion;
 

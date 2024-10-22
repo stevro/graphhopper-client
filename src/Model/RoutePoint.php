@@ -2,19 +2,26 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class RoutePoint
 {
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $type;
 
+    /**
+     * @var array
+     *           @Serializer\Type("array")
+     */
     private $coordinates;
 
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->type;
     }
@@ -32,7 +39,7 @@ class RoutePoint
     }
 
     /**
-     * @return mixed
+     * @return array
      */
     public function getCoordinates()
     {
@@ -40,7 +47,7 @@ class RoutePoint
     }
 
     /**
-     * @param mixed $coordinates
+     * @param array $coordinates
      *
      * @return RoutePoint
      */

@@ -2,69 +2,84 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class Solution
 {
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $costs;
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $distance;
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $time;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $transportTime;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $completionTime;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $maxOperationTime;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $waitingTime;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $serviceDuration;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $preparationTime;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $noVehicles;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $noUnassigned;
 
     /**
      * @var Route[]
+     * @Serializer\Type("array<Stevro\GraphhopperClient\Model\Route>")
      */
     private $routes;
 
     /**
      * @var SolutionUnassigned
+     * @Serializer\Type("Stevro\GraphhopperClient\Model\SolutionUnassigned")
      */
     private $unassigned;
 

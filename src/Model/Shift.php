@@ -2,24 +2,30 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class Shift
 {
 
     /**
      * @var Address
+     *             @Serializer\Type("Stevro\GraphhopperClient\Model\Address")
      */
     private $startAddress;
     /**
      * @var Address
+     * @Serializer\Type("Stevro\GraphhopperClient\Model\Address")
      */
     private $endAddress;
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $earliestStart;
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $latestEnd;
 

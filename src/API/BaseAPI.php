@@ -3,14 +3,10 @@
 namespace Stevro\GraphhopperClient\API;
 
 use GuzzleHttp\Client;
+use JMS\Serializer\SerializerBuilder;
+use JMS\Serializer\SerializerInterface;
 use Psr\Http\Client\ClientInterface;
-use Symfony\Component\PropertyInfo\Extractor\ReflectionExtractor;
-use Symfony\Component\Serializer\Encoder\JsonEncoder;
-use Symfony\Component\Serializer\NameConverter\CamelCaseToSnakeCaseNameConverter;
-use Symfony\Component\Serializer\Normalizer\ArrayDenormalizer;
-use Symfony\Component\Serializer\Normalizer\ObjectNormalizer;
-use Symfony\Component\Serializer\Serializer;
-use Symfony\Component\Serializer\SerializerInterface;
+
 
 class BaseAPI
 {
@@ -32,7 +28,7 @@ class BaseAPI
     protected $serializer;
 
     /**
-     * @param string $apiKey
+     * @param string               $apiKey
      * @param ClientInterface|null $httpClient
      */
     public function __construct(
@@ -48,12 +44,9 @@ class BaseAPI
     /**
      * @return SerializerInterface
      */
-    private function initSerializer()
+    private function initSerializer(): SerializerInterface
     {
-        return new Serializer(
-            [new ObjectNormalizer(null, new CamelCaseToSnakeCaseNameConverter(), null, new ReflectionExtractor()), new ArrayDenormalizer()],
-            [new JsonEncoder()]
-        );
+        return SerializerBuilder::create()->build();
     }
 
 }

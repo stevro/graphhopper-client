@@ -2,7 +2,7 @@
 
 namespace Stevro\GraphhopperClient\API\Request;
 
-use Phalcon\Mvc\Model\Relation;
+use JMS\Serializer\Annotation as Serializer;
 use Stevro\GraphhopperClient\Model\Configuration;
 use Stevro\GraphhopperClient\Model\CostMatrix;
 use Stevro\GraphhopperClient\Model\GroupRelation;
@@ -18,21 +18,25 @@ class VrpRequestPayload
 
     /**
      * @var Vehicle[]
+     * @Serializer\Type("array<Stevro\GraphhopperClient\Model\Vehicle>")
      */
     private $vehicles;
 
     /**
      * @var VehicleType[]
+     *                   @Serializer\Type("array<Stevro\GraphhopperClient\Model\VehicleType>")
      */
     private $vehicleTypes;
 
     /**
      * @var Service[]
+     *         @Serializer\Type("array<Stevro\GraphhopperClient\Model\Service>")
      */
     private $services;
 
     /**
      * @var Shipment[]
+     *                @Serializer\Type("array<Stevro\GraphhopperClient\Model\Shipment>")
      */
     private $shipments;
 
@@ -43,16 +47,19 @@ class VrpRequestPayload
 
     /**
      * @var Objective[]
+     *                 @Serializer\Type("array<Stevro\GraphhopperClient\Model\Objective>")
      */
     private $objectives;
 
     /**
      * @var CostMatrix[]
+     * @Serializer\Type("array<Stevro\GraphhopperClient\Model\CostMatrix>")
      */
     private $costMatrices;
 
     /**
      * @var Configuration|null
+     * @Serializer\Type("Stevro\GraphhopperClient\Model\Configuration")
      */
     private $configuration;
 
@@ -139,7 +146,7 @@ class VrpRequestPayload
     /**
      * @return GroupRelation[]|JobRelation[]
      */
-    public function getRelations(): array
+    public function getRelations()
     {
         return $this->relations;
     }
@@ -159,7 +166,7 @@ class VrpRequestPayload
     /**
      * @return Objective[]
      */
-    public function getObjectives(): array
+    public function getObjectives()
     {
         return $this->objectives;
     }
@@ -179,7 +186,7 @@ class VrpRequestPayload
     /**
      * @return CostMatrix[]
      */
-    public function getCostMatrices(): array
+    public function getCostMatrices()
     {
         return $this->costMatrices;
     }

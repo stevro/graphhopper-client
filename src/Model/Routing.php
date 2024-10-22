@@ -2,48 +2,57 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class Routing
 {
 
     /**
      * @var bool
+     *          @Serializer\Type("bool")
      */
     private $calcPoints;
 
     /**
      * @var bool
+     *          @Serializer\Type("bool")
      */
     private $considerTraffic;
 
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $networkDataProvider;
 
     /**
      * @var string
+     *            @Serializer\Type("string")
      */
     private $curbsideStrictness;
 
     /**
      * @var bool
+     *          @Serializer\Type("bool")
      */
     private $failFast;
 
     /**
      * @var bool
+     *          @Serializer\Type("bool")
      */
     private $returnSnappedWaypoints;
 
     /**
      * @var string[]
+     *              @Serializer\Type("array<string>")
      */
     private $snapPreventions;
 
     /**
      * @return bool
      */
-    public function isCalcPoints(): bool
+    public function isCalcPoints()
     {
         return $this->calcPoints;
     }
@@ -63,7 +72,7 @@ class Routing
     /**
      * @return bool
      */
-    public function isConsiderTraffic(): bool
+    public function isConsiderTraffic()
     {
         return $this->considerTraffic;
     }
@@ -83,7 +92,7 @@ class Routing
     /**
      * @return string
      */
-    public function getNetworkDataProvider(): string
+    public function getNetworkDataProvider()
     {
         return $this->networkDataProvider;
     }
@@ -103,7 +112,7 @@ class Routing
     /**
      * @return string
      */
-    public function getCurbsideStrictness(): string
+    public function getCurbsideStrictness()
     {
         return $this->curbsideStrictness;
     }
@@ -123,7 +132,7 @@ class Routing
     /**
      * @return bool
      */
-    public function isFailFast(): bool
+    public function isFailFast()
     {
         return $this->failFast;
     }
@@ -143,7 +152,7 @@ class Routing
     /**
      * @return bool
      */
-    public function isReturnSnappedWaypoints(): bool
+    public function isReturnSnappedWaypoints()
     {
         return $this->returnSnappedWaypoints;
     }
@@ -163,7 +172,7 @@ class Routing
     /**
      * @return string[]
      */
-    public function getSnapPreventions(): array
+    public function getSnapPreventions()
     {
         return $this->snapPreventions;
     }

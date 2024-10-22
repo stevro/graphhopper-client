@@ -2,15 +2,19 @@
 
 namespace Stevro\GraphhopperClient\Model;
 
+use JMS\Serializer\Annotation as Serializer;
+
 class TimeWindow
 {
 
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $earliest;
     /**
      * @var int
+     * @Serializer\Type("int")
      */
     private $latest;
 
