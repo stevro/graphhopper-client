@@ -89,7 +89,7 @@ class Activity
     /**
      * @return string
      */
-    public function getType(): string
+    public function getType()
     {
         return $this->type;
     }
@@ -109,7 +109,7 @@ class Activity
     /**
      * @return string
      */
-    public function getId(): string
+    public function getId()
     {
         return $this->id;
     }
@@ -129,7 +129,7 @@ class Activity
     /**
      * @return string
      */
-    public function getLocationId(): string
+    public function getLocationId()
     {
         return $this->locationId;
     }
@@ -149,7 +149,7 @@ class Activity
     /**
      * @return ResponseAddress
      */
-    public function getAddress(): ResponseAddress
+    public function getAddress()
     {
         return $this->address;
     }
@@ -169,7 +169,7 @@ class Activity
     /**
      * @return int
      */
-    public function getArrTime(): int
+    public function getArrTime()
     {
         return $this->arrTime;
     }
@@ -209,7 +209,7 @@ class Activity
     /**
      * @return int
      */
-    public function getEndTime(): int
+    public function getEndTime()
     {
         return $this->endTime;
     }
@@ -249,7 +249,7 @@ class Activity
     /**
      * @return int
      */
-    public function getDistance(): int
+    public function getDistance()
     {
         return $this->distance;
     }
@@ -269,7 +269,7 @@ class Activity
     /**
      * @return int
      */
-    public function getDrivingTime(): int
+    public function getDrivingTime()
     {
         return $this->drivingTime;
     }
@@ -289,7 +289,7 @@ class Activity
     /**
      * @return int
      */
-    public function getPreparationTime(): int
+    public function getPreparationTime()
     {
         return $this->preparationTime;
     }
@@ -309,7 +309,7 @@ class Activity
     /**
      * @return int
      */
-    public function getWaitingTime(): int
+    public function getWaitingTime()
     {
         return $this->waitingTime;
     }
@@ -329,7 +329,7 @@ class Activity
     /**
      * @return int[]
      */
-    public function getLoadBefore(): array
+    public function getLoadBefore()
     {
         return $this->loadBefore;
     }
@@ -349,7 +349,7 @@ class Activity
     /**
      * @return int[]
      */
-    public function getLoadAfter(): array
+    public function getLoadAfter()
     {
         return $this->loadAfter;
     }
