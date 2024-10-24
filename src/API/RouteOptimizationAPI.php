@@ -12,6 +12,16 @@ class RouteOptimizationAPI extends BaseAPI
 {
 
     /**
+     * @var string
+     */
+    private $rawSolution;
+
+    public function getRawSolution()
+    {
+        return $this->rawSolution;
+    }
+
+    /**
      * https://docs.graphhopper.com/#operation/solveVRP
      *
      * @param VrpRequestPayload $payload
@@ -22,13 +32,13 @@ class RouteOptimizationAPI extends BaseAPI
      */
     public function postSingleVrp(VrpRequestPayload $payload)
     {
-
+        $this->rawSolution = null;
         try {
             $response = $this->httpClient->post('vrp'.'?key='.$this->apiKey, [
                 'headers' => [
                     'Content-Type' => 'application/json',
                 ],
-                'body' => $this->serializer->serialize($payload, 'json'),
+                'body' => $this->buildPayload($payload),
             ]);
         } catch (RequestException $e) {
             throw new APIException(
@@ -62,10 +72,16 @@ class RouteOptimizationAPI extends BaseAPI
             );
         }
 
+        $this->rawSolution = $response->getBody()->getContents();
         /** @var VrpResponse $data */
-        $vrpResponse = $this->serializer->deserialize($response->getBody()->getContents(), VrpResponse::class, 'json');
+        $vrpResponse = $this->serializer->deserialize($this->rawSolution, VrpResponse::class, 'json');
 
         return $vrpResponse;
+    }
+
+    public function buildPayload(VrpRequestPayload $payload): string
+    {
+        return $this->serializer->serialize($payload, 'json');
     }
 
     /**
@@ -78,13 +94,12 @@ class RouteOptimizationAPI extends BaseAPI
      */
     public function postBatchVrp(VrpRequestPayload $payload)
     {
-
         try {
             $response = $this->httpClient->post('vrp/optimize'.'?key='.$this->apiKey, [
                 'headers' => [
                     'Content-Type' => 'application/json',
                 ],
-                'body' => $this->serializer->serialize($payload, 'json'),
+                'body' => $this->buildPayload($payload),
             ]);
         } catch (RequestException $e) {
             throw new APIException(
@@ -135,6 +150,7 @@ class RouteOptimizationAPI extends BaseAPI
      */
     public function getSolution(string $jobId)
     {
+        $this->rawSolution = null;
         try {
             $response = $this->httpClient->get('vrp/solution/'.$jobId.'?key='.$this->apiKey, []);
         } catch (RequestException $e) {
@@ -169,8 +185,10 @@ class RouteOptimizationAPI extends BaseAPI
             );
         }
 
+        $this->rawSolution = $response->getBody()->getContents();
+
         /** @var VrpResponse $data */
-        $vrpResponse = $this->serializer->deserialize($response->getBody()->getContents(), VrpResponse::class, 'json');
+        $vrpResponse = $this->serializer->deserialize($this->rawSolution, VrpResponse::class, 'json');
 
         return $vrpResponse;
     }

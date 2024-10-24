@@ -19,6 +19,17 @@ class TimeWindow
     private $latest;
 
     /**
+     * @param int $earliest
+     * @param int $latest
+     */
+    public function __construct(int $earliest, int $latest)
+    {
+        $this->earliest = $earliest;
+        $this->latest = $latest;
+    }
+
+
+    /**
      * @return int
      */
     public function getEarliest(): int

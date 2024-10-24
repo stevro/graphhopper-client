@@ -156,6 +156,13 @@ class Vehicle
         return $this;
     }
 
+    public function addShift(Shift $shift): Vehicle
+    {
+        $this->shifts[] = $shift;
+
+        return $this;
+    }
+
     /**
      * @return Address|null
      */

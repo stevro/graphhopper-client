@@ -24,19 +24,19 @@ class VrpRequestPayload
 
     /**
      * @var VehicleType[]
-     *                   @Serializer\Type("array<Stevro\GraphhopperClient\Model\VehicleType>")
+     * @Serializer\Type("array<Stevro\GraphhopperClient\Model\VehicleType>")
      */
     private $vehicleTypes;
 
     /**
      * @var Service[]
-     *         @Serializer\Type("array<Stevro\GraphhopperClient\Model\Service>")
+     * @Serializer\Type("array<Stevro\GraphhopperClient\Model\Service>")
      */
     private $services;
 
     /**
      * @var Shipment[]
-     *                @Serializer\Type("array<Stevro\GraphhopperClient\Model\Shipment>")
+     * @Serializer\Type("array<Stevro\GraphhopperClient\Model\Shipment>")
      */
     private $shipments;
 
@@ -47,7 +47,7 @@ class VrpRequestPayload
 
     /**
      * @var Objective[]
-     *                 @Serializer\Type("array<Stevro\GraphhopperClient\Model\Objective>")
+     * @Serializer\Type("array<Stevro\GraphhopperClient\Model\Objective>")
      */
     private $objectives;
 
@@ -183,6 +183,13 @@ class VrpRequestPayload
         return $this;
     }
 
+    public function addObjective(Objective $objective): VrpRequestPayload
+    {
+        $this->objectives[] = $objective;
+
+        return $this;
+    }
+
     /**
      * @return CostMatrix[]
      */
@@ -240,11 +247,14 @@ class VrpRequestPayload
     public function addService(Service $service): VrpRequestPayload
     {
         $this->services[] = $service;
+
         return $this;
     }
+
     public function addShipment(Shipment $shipment): VrpRequestPayload
     {
         $this->shipments[] = $shipment;
+
         return $this;
     }
 

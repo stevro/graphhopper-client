@@ -7,6 +7,8 @@ use JMS\Serializer\Annotation as Serializer;
 class Shift
 {
 
+    private $shiftId;
+    
     /**
      * @var Address
      *             @Serializer\Type("Stevro\GraphhopperClient\Model\Address")
@@ -34,6 +36,32 @@ class Shift
      */
     private $break;
 
+    /**
+     * @param $shiftId
+     */
+    public function __construct($shiftId)
+    {
+        $this->shiftId = $shiftId;
+    }
+
+
+    /**
+     * @return mixed
+     */
+    public function getShiftId()
+    {
+        return $this->shiftId;
+    }
+
+    /**
+     * @param mixed $shiftId
+     */
+    public function setShiftId($shiftId)
+    {
+        $this->shiftId = $shiftId;
+    }
+    
+    
     /**
      * @return Address
      */
