@@ -66,7 +66,7 @@ class VrpRequestPayload
     /**
      * @return Vehicle[]
      */
-    public function getVehicles(): ?array
+    public function getVehicles()
     {
         return $this->vehicles;
     }
@@ -86,7 +86,7 @@ class VrpRequestPayload
     /**
      * @return VehicleType[]
      */
-    public function getVehicleTypes(): ?array
+    public function getVehicleTypes()
     {
         return $this->vehicleTypes;
     }
@@ -106,7 +106,7 @@ class VrpRequestPayload
     /**
      * @return Service[]
      */
-    public function getServices(): ?array
+    public function getServices()
     {
         return $this->services;
     }
@@ -126,7 +126,7 @@ class VrpRequestPayload
     /**
      * @return Shipment[]
      */
-    public function getShipments(): ?array
+    public function getShipments()
     {
         return $this->shipments;
     }
